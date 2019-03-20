@@ -20,5 +20,4 @@ if (!function_exists('get_tree')) {
 		}
 		return $list;
 	}
-	// 测试增加备注
 }
