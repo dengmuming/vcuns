@@ -1,0 +1,97 @@
+{include file="common/header"}
+<article>
+  <style>
+    .photoLike {
+      position: absolute;
+      right: 30px;
+      top: 15px;
+      background: rgba(232, 40, 74, .8);
+      color: #FFF;
+      padding: 3px 8px;
+      font-size: 12px;
+      border-radius: 3px;
+      cursor:pointer;
+    }
+  </style>
+  <div class="picbox">
+    <!-- 第一列瀑布 -->
+    <ul>
+    {volist name="article" id="vo" offset="0" length="5"}
+    {if condition="count($vo.contentImg)>=1"}
+    {volist name="vo.contentImg" id="v" offset="1" length="2"}
+      <li data-scroll-reveal="enter bottom over 1s" ><a href="{:url('article/article','a_id='.$vo.a_id)}"><i><img src="{$v}"></i>
+        </a><span class="photoLike">喜欢 | {$vo.a_like}</span></li>
+    {/volist}
+    {/if}
+    {/volist}
+    </ul>
+    <!-- 第二列瀑布 -->
+    <ul>
+    {volist name="article" id="vo" offset="5" length="5"}
+    {if condition="count($vo.contentImg)>=1"}
+    {volist name="vo.contentImg" id="v" offset="1" length="2"}
+      <li data-scroll-reveal="enter bottom over 1s" ><a href="{:url('article/article','a_id='.$vo.a_id)}"><i><img src="{$v}"></i>
+        </a><span class="photoLike">喜欢 | {$vo.a_like}</span></li>
+    {/volist}
+    {/if}
+    {/volist}
+    </ul>
+    <!-- 第三列瀑布 -->
+    <ul>
+    {volist name="article" id="vo" offset="10" length="5"}
+    {if condition="count($vo.contentImg)>=1"}
+    {volist name="vo.contentImg" id="v" offset="1" length="2"}
+      <li data-scroll-reveal="enter bottom over 1s" ><a href="{:url('article/article','a_id='.$vo.a_id)}"><i><img src="{$v}"></i>
+        </a><span class="photoLike">喜欢 | {$vo.a_like}</span></li>
+    {/volist}
+    {/if}
+    {/volist}
+    </ul>
+    <!-- 第四列瀑布 -->
+    <ul>
+    {volist name="article" id="vo" offset="15" length="5"}
+    {if condition="count($vo.contentImg)>=1"}
+    {volist name="vo.contentImg" id="v" offset="1" length="2"}
+      <li data-scroll-reveal="enter bottom over 1s" ><a href="{:url('article/article','a_id='.$vo.a_id)}"><i><img src="{$v}"></i>
+        </a><span class="photoLike">喜欢 | {$vo.a_like}</span></li>
+    {/volist}
+    {/if}
+    {/volist}
+    </ul>
+<!-- 相册模式1 -->
+<!--     {volist name="article" id="vo"}
+    <ul>
+    {volist name="vo.contentImg" id="v"}
+      <li data-scroll-reveal="enter bottom over 1s" ><a href="{:url('article/article','a_id='.$vo.a_id)}"><i><img src="{$v}" ></i>
+        </a><span class="photoLike">喜欢 | {$vo.a_like}</span></li>
+    {/volist}
+    </ul>
+    {/volist} -->
+<!-- 相册模式1 -->
+   </div>
+  <!-- 分页开始 -->
+  <style type="text/css" media="screen">
+    .pagination{text-align:center;margin-top:20px;margin-bottom: 20px;}
+    .pagination li{margin:0px 6px; border:1px solid #e6e6e6;padding: 3px 8px;display: inline-block;}
+    .pagination .active{background-color: #dd1a20;color: #fff;}
+    .pagination .disabled{color:#aaa;}
+  </style>
+  {$article->render()}
+  <!-- 分页结束 -->
+</article>
+{include file="common/footer"}
+<link href="__STATIC__/index/photo/css/index.css" rel="stylesheet">
+<script src="__STATIC__/index/photo/js/scrollReveal.js"></script>
+  <script>
+window.onload = function ()
+{
+var obj=null;
+var As=document.getElementById('nav').getElementsByTagName('a');
+obj = As[0];
+for(i=1;i<As.length;i++){if(window.location.href.indexOf(As[i].href)>=0)
+obj=As[i];}
+obj.id='selected'
+}
+</script>
+</body>
+</html>

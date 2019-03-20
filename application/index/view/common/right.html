@@ -1,0 +1,83 @@
+  <div class="sidebar">
+    <div class="zhuanti">
+      <h2 class="hometitle">特别推荐</h2>
+      <ul>
+        <style>
+          .a_title{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        </style>
+        {volist name="articleRecommend" id="vo"}
+        <li> <i><img src="__RESOURCE__{$vo.a_thumber}"></i>
+          <p class="a_title">{$vo.a_title}<span><a href="{:url('article/article','a_id='.$vo.a_id)}">阅读</a></span> </p>
+        </li>
+        {/volist}
+      </ul>
+    </div>
+    <!-- <div class="tuijian">
+      <h2 class="hometitle">推荐文章</h2>
+      <ul class="tjpic">
+        <i><img src="__STATIC__/index/images/toppic01.jpg"></i>
+        <p><a href="/">别让这些闹心的套路，毁了你的网页设计</a></p>
+      </ul>
+      <ul class="sidenews">
+        <li> <i><img src="__STATIC__/index/images/toppic01.jpg"></i>
+          <p><a href="/">别让这些闹心的套路，毁了你的网页设计</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="__STATIC__/index/images/toppic02.jpg"></i>
+          <p><a href="/">给我模板PSD源文件，我给你设计HTML！</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="__STATIC__/index/images/v1.jpg"></i>
+          <p><a href="/">别让这些闹心的套路，毁了你的网页设计</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="__STATIC__/index/images/v2.jpg"></i>
+          <p><a href="/">给我模板PSD源文件，我给你设计HTML！</a></p>
+          <span>2018-05-13</span> </li>
+      </ul>
+    </div> -->
+    <div class="tuijian">
+      <h2 class="hometitle">热门排行</h2>
+      <ul class="tjpic">
+        {volist name="articleHot" id="vo" offset="0" length='1'}
+        <a href="{:url('article/article','a_id='.$vo.a_id)}"><i><img src="__RESOURCE__{$vo.a_thumber}"></i>
+        <p>{$vo.a_title}</p></a>
+        {/volist}
+      </ul>
+      <ul class="sidenews">
+        {volist name="articleHot" id="vo" offset="1" length='4'}
+        <li> <a href="{:url('article/article','a_id='.$vo.a_id)}"><i><img src="__RESOURCE__{$vo.a_thumber}"></i>
+          <p>{$vo.a_title}</a></p>
+          <span>{$vo.a_time|date='Y-m-d',###}</span> </li>
+        {/volist}
+      </ul>
+    </div>
+    <div class="cloud">
+      <h2 class="hometitle">云标签</h2>
+      <ul>
+        {volist name="category" id="vo" mod="2"}
+        {eq name="mod" value="2"}<a href="{:url('section/section','c_id='.$vo.c_id)}">{$vo.c_name}</a><br/>{/eq}
+        <a href="{:url('section/section','c_id='.$vo.c_id)}">{$vo.c_name}</a>
+        {/volist}
+      </ul>
+    </div>
+    <div class="links">
+      <h2 class="hometitle">友情链接</h2>
+      <ul>
+        <!-- <li><a href="__RESOURCE__" target="_blank">微寸博客</a></li> -->
+        <li><a href="http://www.yangqq.com" target="_blank">杨青博客</a></li>
+      </ul>
+    </div>
+    <div class="guanzhu" id="follow-us">
+      <h2 class="hometitle">联系我们 | 欢迎投稿</h2>
+      <ul>
+        <li class="sina"><a href="javascript:;" target="_blank"><span>新浪微博</span>微寸博客</a></li>
+        <li class="tencent"><a href="javascript:;" target="_blank"><span>腾讯微博</span>微寸博客</a></li>
+        <li class="qq"><a href="http://wpa.qq.com/msgrd?v=3&uin=81844779&site=qq&menu=yes" target="_blank"><span>QQ号</span>81844779</a></li>
+        <li class="email"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=81844779@qq.com" target="_blank"><span>邮箱帐号</span>81844779@qq.com</a></li>
+        <li class="wxgzh"><a href="javascript:;" target="_blank"><span>微信号</span>MM81844779</a></li>
+        <!-- <li class="wx"><img src="__STATIC__/index/images/wx.png"></li> -->
+      </ul>
+    </div>
+  </div>
