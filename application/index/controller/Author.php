@@ -15,6 +15,10 @@ class Author extends Common{
 			if (isset($data['a_author'])) {
 				$where['article.a_author'] = $data['a_author'];
 			}
+			// 将接收的文章id存到条件中
+			if (isset($data['a_id'])) {
+				$where['article.a_id'] = $data['a_id'];
+			}
 		}
 		// 按创建时间查询所有文章数据(带分类) 模型层默认分页为10
 		$article = $model->getArticleCatePage($where);

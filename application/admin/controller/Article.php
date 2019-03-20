@@ -86,7 +86,6 @@ class Article extends Common{
 	protected function uploadArticleThumb(&$data){
 		// 1.获取file类对象
 		$file = request()->file('a_img');
-		//dump($_FILES);
 		if (!$file) {
 			// 没有上传文件
 			$this->error('文件必须上传');
